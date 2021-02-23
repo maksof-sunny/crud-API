@@ -13,9 +13,9 @@ app.use(express.json());
 require('./routes/route')(app);
 
 
-// app.get('/', (req, res) => {
-//   res.send('welcom to my World')
-// })
+app.get('/', (req, res) => {
+  res.send('welcom to my World')
+})
 
 app.listen(3000, function(){
     console.log("running on port 3000.")

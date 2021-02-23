@@ -51,7 +51,7 @@ exports.insertData = (req,res) =>{
 exports.updateData = async (req,res)=>{
     try{
         const id = req.params.id;
-        const updateId = await info.updateOne(
+        const updateId = await Info.updateOne(
             {_id : id},
             {
                 $set : {name : req.body.name, rollno : req.body.rollno}
@@ -63,12 +63,13 @@ exports.updateData = async (req,res)=>{
     }
 };
 
-exports.deleteData = async(req,res)=>{
+exports.deleteData = async (req,res)=>{
     try{
-        const id = req.params.id;
-        const deleteId = await info.remove({_id : id});
+        const id=req.params.id
+        const deleteId = await Info.remove({_id : id});
         res.status(200).json(deleteId);
     }catch(err){
+        
         res.status(500).json({message:err})
     }
 }
